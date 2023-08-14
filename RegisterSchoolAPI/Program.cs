@@ -1,5 +1,12 @@
+using RegisterSchoolAPI;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
+//Add contexto
+builder.Services.AddDbContext<AplicacionContexto>(options => 
+options.UseSqlServer(builder.Configuration.GetConnectionString("JR")));
 // Add services to the container.
 
 builder.Services.AddControllers();
