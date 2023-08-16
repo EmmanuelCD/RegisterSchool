@@ -7,8 +7,8 @@ namespace RegisterSchoolAPI.Repositorios
         /// <summary>
         /// Metodo para Inserta nuevo usuario
         /// </summary>
-        /// <param name="usuario"></param>
-        /// <returns></returns>
+        /// <param name="usuario">Objecto usuario</param>
+        /// <returns>Un booleado y un objeto <see cref="Usuario" /></returns>
         Task<(bool, Usuario)> Insert(Usuario usuario);
         /// <summary>
         /// Metodo para Editar un usuario
