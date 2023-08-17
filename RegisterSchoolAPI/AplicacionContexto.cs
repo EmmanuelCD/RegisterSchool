@@ -3,7 +3,7 @@ using Models;
 
 namespace RegisterSchoolAPI
 {
-    public abstract class AplicacionContexto : DbContext
+    public class AplicacionContexto : DbContext
     {
         public AplicacionContexto(DbContextOptions options) : base(options)
         {

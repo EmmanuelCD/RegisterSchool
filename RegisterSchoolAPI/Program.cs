@@ -1,6 +1,9 @@
 using RegisterSchoolAPI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using RegisterSchoolAPI.Repositorios;
+using RegisterSchoolAPI.Servicios;
+using RegisterSchoolAPI.Dominio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AplicacionContexto>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("JR")));
 // Add services to the container.
-
-builder.Services.AddControllers();
+builder.Services.AddScoped<IRepositorioUsuario, ServicioUsuario>();
+builder.Services.AddScoped<IUsuario, DUsuario>();
+builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
