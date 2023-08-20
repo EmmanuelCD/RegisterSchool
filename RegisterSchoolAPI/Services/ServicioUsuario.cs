@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models;
-using RegisterSchoolAPI.Repositorios;
+using RegisterSchoolAPI.Repositories;
 using System.Reflection.Metadata;
 
-namespace RegisterSchoolAPI.Servicios
+namespace RegisterSchoolAPI.Services
 {
     public class ServicioUsuario : IRepositorioUsuario
     {

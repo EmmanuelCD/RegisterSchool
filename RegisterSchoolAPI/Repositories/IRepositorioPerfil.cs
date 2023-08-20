@@ -1,4 +1,4 @@
-﻿namespace RegisterSchoolAPI.Repositorios
+﻿namespace RegisterSchoolAPI.Repositories
 {
     public interface IRepositorioPerfil
     {

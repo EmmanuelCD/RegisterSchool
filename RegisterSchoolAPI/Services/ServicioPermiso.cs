@@ -1,4 +1,4 @@
-﻿namespace RegisterSchoolAPI.Servicios
+﻿namespace RegisterSchoolAPI.Services
 {
     public class ServicioPermiso
     {

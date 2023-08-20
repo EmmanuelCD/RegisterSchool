@@ -1,8 +1,8 @@
 ﻿using Models;
 using RegisterSchoolAPI.Dto;
-using RegisterSchoolAPI.Repositorios;
+using RegisterSchoolAPI.Repositories;
 
-namespace RegisterSchoolAPI.Dominio
+namespace RegisterSchoolAPI.Domain
 {
     public class DUsuario:IUsuario
     {

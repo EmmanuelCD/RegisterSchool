@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using RegisterSchoolAPI.Dominio;
+using RegisterSchoolAPI.Domain;
 using RegisterSchoolAPI.Dto;
 using RegisterSchoolAPI.Tools;
 using System.Net;
@@ -109,6 +110,7 @@ namespace RegisterSchoolAPI.Controllers
             
         }
         [HttpPatch(":id")]
+        [Authorize]
         public async Task<ActionResult<ApiResponse>> Patch([FromBody]DtoUpdateUsuario usuario, int id)
         {
             try
