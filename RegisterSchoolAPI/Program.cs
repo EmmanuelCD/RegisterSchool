@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using RegisterSchoolAPI.Repositorios;
 using RegisterSchoolAPI.Servicios;
 using RegisterSchoolAPI.Dominio;
+using RegisterSchoolAPI.Tools;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("JR")));
 builder.Services.AddScoped<IRepositorioUsuario, ServicioUsuario>();
 builder.Services.AddScoped<IUsuario, DUsuario>();
 builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -13,4 +13,10 @@
     <ProjectReference Include="..\RegisterSchoolAPI\RegisterSchoolAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CustomControls\" />
+    <Folder Include="ViewModel\" />
+    <Folder Include="Styles\" />
+  </ItemGroup>
+
 </Project>

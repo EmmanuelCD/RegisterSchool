@@ -22,9 +22,12 @@ namespace RegisterSchoolAPI.Dominio
             return  await Repositorio.GetAll();
         }
 
-        public Usuario GetById(int id)
+        public async Task<Usuario> GetById(int id)
         {
-             var result = Repositorio.GetById(id).Result;
+            var result = await Repositorio.GetById(id);
+            if (result == null)
+                return null;
+
             return new Usuario()
             {
                 Id = result.Id,
@@ -41,30 +44,31 @@ namespace RegisterSchoolAPI.Dominio
             return Repositorio.GetByName(name);
         }
 
-        public Task<(bool, Usuario)> Insert(DtoCreateUsuario usuario)
+        public async Task<bool> Insert(DtoCreateUsuario usuario)
         {
             var Result = new Usuario()
             {
-                Email = usuario.Email,
-                Nombre = usuario.Nombre,
-                Password = usuario.Password,
+                Email = usuario.Email != "string" ? usuario.Email : "",
+                Nombre = usuario.Nombre != "string" ? usuario.Nombre : "",
+                Password = usuario.Password != "string" ? usuario.Password : "",
                 PerfilId = usuario.PerfilId,
             };
-            return Repositorio.Insert(Result);
+            return await Repositorio.Insert(Result);
         }
 
-        public Task<(bool, Usuario)> Updated(DtoUpdateUsuario usuario, int id)
+        public async Task<bool> Updated(DtoUpdateUsuario usuario, int id)
         {
             var Result = new Usuario()
             {
                 Id = id,
-                Email = usuario.Email,
-                Nombre = usuario.Nombre,
-                Password = usuario.Password,
+                Email = usuario.Email != "string" ? usuario.Email : "",
+                Nombre = usuario.Nombre != "string" ? usuario.Nombre : "",
+                Password = usuario.Password != "string" ? usuario.Password : "",
                 PerfilId = usuario.PerfilId,
                 Estado = usuario.Estado,
+                FechaActualizacion = DateTime.Now
             };
-            return Repositorio.Updated(Result);
+            return await Repositorio.Updated(Result);
         }
     }
 }

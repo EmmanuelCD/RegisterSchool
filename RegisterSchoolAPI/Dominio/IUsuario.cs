@@ -10,13 +10,13 @@ namespace RegisterSchoolAPI.Dominio
         /// </summary>
         /// <param name="usuario">Objecto usuario</param>
         /// <returns>Un booleano y un objeto <see cref="Usuario" /></returns>
-        Task<(bool,Usuario)> Insert(DtoCreateUsuario usuario);
+        Task<bool> Insert(DtoCreateUsuario usuario);
         /// <summary>
         /// Metodo para Editar un usuario
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        Task<(bool, Usuario)> Updated(DtoUpdateUsuario usuario, int id);
+        Task<bool> Updated(DtoUpdateUsuario usuario, int id);
         /// <summary>
         /// Metodo para optener una lista de  usuarios
         /// </summary>
@@ -27,7 +27,7 @@ namespace RegisterSchoolAPI.Dominio
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Usuario GetById(int id);
+        Task<Usuario> GetById(int id);
         /// <summary>
         /// Metodo para optener un usuario
         /// </summary>

@@ -9,13 +9,13 @@ namespace RegisterSchoolAPI.Repositorios
         /// </summary>
         /// <param name="usuario">Objecto usuario</param>
         /// <returns>Un booleano y un objeto <see cref="Usuario" /></returns>
-        Task<(bool, Usuario)> Insert(Usuario usuario);
+        Task<bool> Insert(Usuario usuario);
         /// <summary>
         /// Metodo para Editar un usuario
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        Task<(bool, Usuario)> Updated(Usuario usuario);
+        Task<bool> Updated(Usuario usuario);
         /// <summary>
         /// Metodo para optener una lista de  usuarios
         /// </summary>
