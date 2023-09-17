@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -20,6 +21,7 @@ namespace Models
         [Required]
         public string Email { get; set; } = string.Empty;
         [Required]
+        [ForeignKey("Perfil")]
         public int PerfilId { get; set; }
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public DateTime FechaActualizacion { get; set; } = DateTime.Now;

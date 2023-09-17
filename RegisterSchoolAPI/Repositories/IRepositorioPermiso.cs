@@ -1,4 +1,5 @@
-﻿namespace RegisterSchoolAPI.Repositories
+﻿
+namespace RegisterSchoolAPI.Repositories
 {
     public interface IRepositorioPermiso
     {

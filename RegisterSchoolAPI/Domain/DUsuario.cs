@@ -1,6 +1,7 @@
 ﻿using Models;
 using RegisterSchoolAPI.Dto;
 using RegisterSchoolAPI.Repositories;
+using RegisterSchoolAPI.Tools;
 
 namespace RegisterSchoolAPI.Domain
 {
@@ -50,9 +51,10 @@ namespace RegisterSchoolAPI.Domain
             {
                 Email = usuario.Email != "string" ? usuario.Email : "",
                 Nombre = usuario.Nombre != "string" ? usuario.Nombre : "",
-                Password = usuario.Password != "string" ? usuario.Password : "",
+                Password = usuario.Password != "string" ? Hash.EncodePasswordToBase64(usuario.Password) : "",
                 PerfilId = usuario.PerfilId,
             };
+
             return await Repositorio.Insert(Result);
         }
 
@@ -63,7 +65,7 @@ namespace RegisterSchoolAPI.Domain
                 Id = id,
                 Email = usuario.Email != "string" ? usuario.Email : "",
                 Nombre = usuario.Nombre != "string" ? usuario.Nombre : "",
-                Password = usuario.Password != "string" ? usuario.Password : "",
+                Password = usuario.Password != "string" ? Hash.EncodePasswordToBase64(usuario.Password) : "",
                 PerfilId = usuario.PerfilId,
                 Estado = usuario.Estado,
                 FechaActualizacion = DateTime.Now
